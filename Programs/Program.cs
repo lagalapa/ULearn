@@ -1,15 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Programs
 {
     class Program
     {
+        static void ExchangeTwoVariables(int a, int b )
+        {
+            int c = a;
+            a = b;
+            b = c;
+            Console.WriteLine("{0} {1}", a, b);
+        }
         static void Main(string[] args)
         {
+            ExchangeTwoVariables(1, 2);
         }
     }
 }
