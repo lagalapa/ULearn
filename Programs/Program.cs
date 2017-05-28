@@ -14,6 +14,10 @@ namespace Programs
             b = c;
             Console.WriteLine("{0} {1}", a, b);
         }
+
+        /// <summary>
+        /// Записывает трехзначное число наоборот
+        /// </summary>
         static void Reverse3DigitsNumber(int number)
         {
             int n0, n1, n2;
@@ -24,11 +28,24 @@ namespace Programs
             Console.WriteLine(n2 + n1 * 10 + n0 * 100);
         }
 
+        /// <summary>
+        /// Дано время ровно hour часов. Находит угол между часовой и минутной стрелками.
+        /// </summary>
         static void ShowAngle(int hour)
         {
             hour %= 12;
             Console.WriteLine(Math.Abs((hour / 6) * 180 - (hour % 6) * 30));
         }
+
+        /// <summary>
+        /// Сделай то не знаю что
+        /// </summary>
+        static string Decode(string str)
+        {
+            str = str.Replace(".", "");
+            return (int.Parse(str) % 1024).ToString();
+        }
+
         static void Main(string[] args)
         {
             ExchangeTwoVariables(1, 2);
@@ -36,6 +53,7 @@ namespace Programs
             Reverse3DigitsNumber(459);
             ShowAngle(22);
             ExchangeTwoVariables(3, 4);
+            Console.WriteLine(Decode("12....3"));
         }
     }
 }
