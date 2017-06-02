@@ -37,6 +37,9 @@ namespace Programs
             Console.WriteLine(Math.Abs((hour / 6) * 180 - (hour % 6) * 30));
         }
 
+        /// <summary>
+        /// Находит расстояние от точки (x0,y0) до прямой, заданной двумя точками
+        /// </summary>
         static void Distance(double x0, double y0, double x1, double y1, double x2, double y2)
         {
             double distance = (Math.Abs((y2-y1)*x0 - (x2-x1)*y0 + x2*y1 - y2*x1)) / (Math.Sqrt((y2-y1)*(y2 - y1) + (x2-x1)* (x2 - x1)));
