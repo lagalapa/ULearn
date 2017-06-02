@@ -55,6 +55,23 @@ namespace Programs
             return (int.Parse(str) % 1024);
         }
 
+        /// <summary>
+        /// Вычисляет сумму на момент окончания вклада
+        /// </summary>
+        /// <param name="userInput">
+        /// Строка из трех чисел, разделенных пробелами: первоначальная сумма, процент годовых, количество месяцев
+        /// </param>
+        public static double Calculate(string userInput)
+        {
+            string[] inputArray = userInput.Split(new char[] { ' ' });
+            double initialSum = double.Parse(inputArray[0]);
+            double percentInMonth = 1 + double.Parse(inputArray[1]) / 100 / 12;
+            double numberOfMonths = double.Parse(inputArray[2]);
+            double totalPercentage = Math.Pow(percentInMonth, numberOfMonths);
+
+            return initialSum *= totalPercentage;
+        }
+
         static void Main(string[] args)
         {
             ExchangeTwoVariables(1, 2);
@@ -64,6 +81,7 @@ namespace Programs
             ExchangeTwoVariables(3, 4);
             Console.WriteLine(Decode("12....3"));
             Distance(1, 0, 0, 1, 0, 2);
+            Console.WriteLine(Calculate("10000 12 12"));
         }
     }
 }
