@@ -72,6 +72,47 @@ namespace Programs
             return initialSum *= totalPercentage;
         }
 
+        /// <summary>
+        /// Вычисляет сумму всех положительных чисел меньших limit и кратных значениям из массива multiplicity
+        /// </summary>
+        static int Expr10(int limit, int[] multiplicity)
+        {
+            int result = 0;
+
+            bool CheckMultiplicity(int numForCheck)
+            {
+                for (int i = 0; i < multiplicity.Length; i++)
+                {
+                    if (numForCheck % multiplicity[i] == 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            for (int i = 0; i < limit; i++)
+            {
+                if (CheckMultiplicity(i))
+                {
+                    result += i;
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Вычисляет угол между часовой и минутной стрелками
+        /// </summary>
+        static int Expr11(int hours, int minutes)
+        {
+            hours %= 12;
+            int hoursDegrees = hours * 30;
+            int minutesDegrees = minutes * 6;
+            int diff = Math.Abs(minutesDegrees - hoursDegrees);
+            return Math.Min(diff, 360 - diff);
+        }
+
         static void Main(string[] args)
         {
             ExchangeTwoVariables(1, 2);
@@ -82,6 +123,8 @@ namespace Programs
             Console.WriteLine(Decode("12....3"));
             Distance(1, 0, 0, 1, 0, 2);
             Console.WriteLine(Calculate("10000 12 12"));
+            Console.WriteLine(Expr10(1000, new int[] { 3, 5 }));
+            Console.WriteLine(Expr11(20, 51));
         }
     }
 }
