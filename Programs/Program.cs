@@ -113,6 +113,35 @@ namespace Programs
             return Math.Min(diff, 360 - diff);
         }
 
+        /// <summary>
+        /// Задача с тимуса 1084. Пусти козла в огород
+        /// </summary>
+        static void Expr13()
+        {
+            string[] input = Console.ReadLine().Split();
+            double side, cord;
+            side = double.Parse(input[0]);
+            cord = double.Parse(input[1]);
+            double result;
+            if (cord < side / 2)
+            {
+                result = Math.PI * Math.Pow(cord, 2);
+            }
+            else if (cord >= Math.Sqrt(2 * Math.Pow(side, 2)) / 2)
+            {
+                result = Math.Pow(side, 2);
+            }
+            else
+            {
+                double sinAuxAngle = (side / 2) / cord;
+                double angle = Math.PI - 2 * Math.Asin(sinAuxAngle);
+                double areaSector = Math.PI * Math.Pow(cord, 2) * angle / (2 * Math.PI);
+                double areaTriangle = Math.Pow(cord, 2) * Math.Sin(angle) / 2;
+                result = Math.PI * Math.Pow(cord, 2) - (areaSector - areaTriangle) * 4;
+            }
+            Console.WriteLine(String.Format("{0:F3}", result));
+        }
+
         static void Main(string[] args)
         {
             ExchangeTwoVariables(1, 2);
@@ -125,6 +154,7 @@ namespace Programs
             Console.WriteLine(Calculate("10000 12 12"));
             Console.WriteLine(Expr10(1000, new int[] { 3, 5 }));
             Console.WriteLine(Expr11(20, 51));
+            //Expr13();
         }
     }
 }
