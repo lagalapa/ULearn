@@ -118,6 +118,8 @@ namespace Programs
         /// </summary>
         static void Expr13()
         {
+            //Идея: 2 случая, если радиус круга меньше половины стороны квадрата;
+            //если больше, то считаем площади секторов без крышечек
             string[] input = Console.ReadLine().Split();
             double side, cord;
             side = double.Parse(input[0]);
@@ -142,6 +144,43 @@ namespace Programs
             Console.WriteLine(String.Format("{0:F3}", result));
         }
 
+        /// <summary>
+        /// Задача с тимуса 1885. Комфорт пассажиров
+        /// </summary>
+        static void Expr12()
+        {
+            //x*t1 + v*t2 = h; t1 + t2 = t. Решаем систему, находим t2.
+            //Если t2 неположительно, значит можем весь путь лететь со скоростью x, 
+            //а max находим при движении со скоростью x + epsilon.
+            //Вообще идея в том что нам нужно лететь максимально долго с максимальной скоростью, 
+            //при которой не закладывает уши. Это скорость x, так мы получаем min.
+            int h, t, v, x;
+            string[] input = Console.ReadLine().Split();
+            h = int.Parse(input[0]);
+            t = int.Parse(input[1]);
+            v = int.Parse(input[2]);
+            x = int.Parse(input[3]);
+
+            double min, max, tBlocked;
+            tBlocked = (double)(h - t * x) / (v - x);
+            if (tBlocked <= 0)
+            {
+                min = 0;
+                max = (double)h / x;
+            }
+            else
+            {
+                min = tBlocked;
+                max = (double)t;
+            }
+            Console.WriteLine(min + " " + max);
+        }
+        static int BinarySearch(int[] arr, int number)
+        {
+            // написать код двоичного поиска
+            return 0;
+        }
+
         static void Main(string[] args)
         {
             ExchangeTwoVariables(1, 2);
@@ -155,6 +194,8 @@ namespace Programs
             Console.WriteLine(Expr10(1000, new int[] { 3, 5 }));
             Console.WriteLine(Expr11(20, 51));
             //Expr13();
+            //Expr12();
+            
         }
     }
 }
