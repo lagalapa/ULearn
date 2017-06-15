@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programs", "Programs\Programs.csproj", "{BC6A5BFC-7C7C-4BFC-B618-282ECABA884D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billiards", "Billiards.exercise\Billiards.csproj", "{5A59E50B-7340-49BC-8398-6F82C86F99D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallPrograms", "SmallPrograms\SmallPrograms.csproj", "{BDF944ED-DBE8-40B7-8C6C-48C39831C2E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pluralize", "Pluralize.exercise\Pluralize.csproj", "{105ABC87-92A4-42BA-8B34-5232D8A1FDC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BDF944ED-DBE8-40B7-8C6C-48C39831C2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDF944ED-DBE8-40B7-8C6C-48C39831C2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDF944ED-DBE8-40B7-8C6C-48C39831C2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{105ABC87-92A4-42BA-8B34-5232D8A1FDC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{105ABC87-92A4-42BA-8B34-5232D8A1FDC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{105ABC87-92A4-42BA-8B34-5232D8A1FDC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{105ABC87-92A4-42BA-8B34-5232D8A1FDC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

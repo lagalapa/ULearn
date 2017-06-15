@@ -154,7 +154,7 @@ namespace Programs
             //а max находим при движении со скоростью x + epsilon.
             //Вообще идея в том что нам нужно лететь максимально долго с максимальной скоростью, 
             //при которой не закладывает уши. Это скорость x, так мы получаем min.
-            int h, t, v, x;
+            double h, t, v, x;
             string[] input = Console.ReadLine().Split();
             h = int.Parse(input[0]);
             t = int.Parse(input[1]);
@@ -162,16 +162,16 @@ namespace Programs
             x = int.Parse(input[3]);
 
             double min, max, tBlocked;
-            tBlocked = (double)(h - t * x) / (v - x);
+            tBlocked = (h - t * x) / (v - x);
             if (tBlocked <= 0)
             {
                 min = 0;
-                max = (double)h / x;
+                max = h / x;
             }
             else
             {
                 min = tBlocked;
-                max = (double)t;
+                max = t;
             }
             Console.WriteLine(min + " " + max);
         }
