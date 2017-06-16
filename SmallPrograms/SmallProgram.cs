@@ -49,10 +49,41 @@ namespace SmallPrograms
                 Console.WriteLine("black");
         }
 
+        /// <summary>
+        /// Тимус 2023. Donald is a postman
+        /// </summary>
+        static void Problem2023()
+        {
+            string[,] cases = new string[3,9] { { "Alice", "Ariel", "Aurora", "Phil", "Peter", "Olaf", "Phoebus", "Ralph", "Robin" },
+                                              { "Bambi", "Belle", "Bolt", "Mulan", "Mowgli", "Mickey", "Silver", "Simba", "Stitch" },
+                                              { "Dumbo", "Genie", "Jiminy", "Kuzko", "Kida", "Kenai", "Tarzan", "Tiana", "Winnie" } };
+            int n = int.Parse(Console.ReadLine());
+            int steps = 0, currentPosition = 0;
+            string name;
+
+            for (int k = 0; k < n; k++)
+            {
+                name = Console.ReadLine();
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 9; j++)
+                    {
+                        if (cases[i, j] == name)
+                        {
+                            steps += Math.Abs(currentPosition - i);
+                            currentPosition = i;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(steps);
+        }
+
         static void Main(string[] args)
         {
             //Problem2066();
             //Problem1924();
+            Problem2023();
         }
     }
 }
