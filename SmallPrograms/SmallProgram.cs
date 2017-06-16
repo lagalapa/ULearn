@@ -35,9 +35,24 @@ namespace SmallPrograms
             Console.WriteLine(Math.Min(a - b - c, a - b * c));
         }
 
+        /// <summary>
+        /// Тимус 1924. Four Imps
+        /// </summary>
+        static void Problem1924()
+        {
+            //Похоже что неважно как расставлять плюсы и минусы, итоговая четность зависит только от количества чисел.
+            //Закономерность такая ННЧЧННЧЧННЧЧ...
+            int mod = int.Parse(Console.ReadLine()) % 4;
+            if (mod == 1 || mod == 2)
+                Console.WriteLine("grimy");
+            else
+                Console.WriteLine("black");
+        }
+
         static void Main(string[] args)
         {
             //Problem2066();
+            //Problem1924();
         }
     }
 }
