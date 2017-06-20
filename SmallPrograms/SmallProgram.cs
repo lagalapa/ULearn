@@ -79,11 +79,20 @@ namespace SmallPrograms
             Console.WriteLine(steps);
         }
 
+        /// <summary>
+        /// Reverse Root
+        /// </summary>
+        static void Timus1001()
+        {
+            foreach (string s in (Console.In.ReadToEnd().Split((char[])null, StringSplitOptions.RemoveEmptyEntries).Reverse()))
+            {
+                Console.WriteLine(Math.Sqrt(double.Parse(s)).ToString("F4"));
+            }
+        }
+
         static void Main(string[] args)
         {
-            //Problem2066();
-            //Problem1924();
-            Problem2023();
+            
         }
     }
 }
