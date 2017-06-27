@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace SmallPrograms
 {
@@ -80,7 +81,7 @@ namespace SmallPrograms
         }
 
         /// <summary>
-        /// Reverse Root
+        /// Timus 1001. Reverse Root
         /// </summary>
         static void Timus1001()
         {
@@ -90,8 +91,39 @@ namespace SmallPrograms
             }
         }
 
+        static void WriteY()
+        {
+            while (true)
+                Console.Write("y");
+        }
+
+        public interface ILol
+        { }
+
+        /// <summary>
+        /// Timus 1787. Turn for MEGA
+        /// </summary>
+        static void Timus1787()
+        {
+            var k = int.Parse(Console.ReadLine().Split()[0]);
+            var carsPerMinute = Console.ReadLine().Split().Select(x => int.Parse(x)).ToArray();
+            int extraCars = 0;
+
+            foreach (var i in carsPerMinute)
+            {
+                extraCars = (i + extraCars > k) ? (i + extraCars - k) : 0;
+            }
+
+            Console.WriteLine(extraCars);
+        }
+        
         static void Main(string[] args)
         {
+            /*Thread t = new Thread(WriteY);
+            t.Start();
+            while (true)
+                Console.Write("x");
+            */
             
         }
     }
