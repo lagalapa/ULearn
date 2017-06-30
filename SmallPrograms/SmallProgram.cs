@@ -91,14 +91,6 @@ namespace SmallPrograms
             }
         }
 
-        static void WriteY()
-        {
-            while (true)
-                Console.Write("y");
-        }
-
-        public interface ILol
-        { }
 
         /// <summary>
         /// Timus 1787. Turn for MEGA
@@ -117,13 +109,24 @@ namespace SmallPrograms
             Console.WriteLine(extraCars);
         }
         
+        /// <summary>
+        /// Timus 1880. Psych Up's Eigenvalues
+        /// </summary>
+        static void Timus1880()
+        {
+            var eigenValues = new int[3][];
+            Console.ReadLine();
+            eigenValues[0] = Console.ReadLine().Split().Select(s => int.Parse(s)).ToArray();
+            Console.ReadLine();
+            eigenValues[1] = Console.ReadLine().Split().Select(s => int.Parse(s)).ToArray();
+            Console.ReadLine();
+            eigenValues[3] = Console.ReadLine().Split().Select(s => int.Parse(s)).ToArray();
+            var result = eigenValues[0].Intersect(eigenValues[1]).Intersect(eigenValues[2]).ToArray();
+            Console.WriteLine(result.Length);
+        }
+
         static void Main(string[] args)
         {
-            /*Thread t = new Thread(WriteY);
-            t.Start();
-            while (true)
-                Console.Write("x");
-            */
             
         }
     }

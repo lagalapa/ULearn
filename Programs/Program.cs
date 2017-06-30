@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Programs
 {
@@ -181,6 +182,50 @@ namespace Programs
             return 0;
         }
 
+        static void Cond1()
+        {
+            while (true)
+            {
+                string[] input = Console.ReadLine().Split();
+                string start = input[0];
+                string finish = input[1];
+                if (start == finish)
+                {
+                    Console.WriteLine("You haven't made a turn");
+                    continue;
+                }
+                int x1 = (int)start[0] % 32;
+                int y1 = (int)start[1];
+                int x2 = (int)finish[0] % 32;
+                int y2 = (int)finish[1];
+                bool okForRook = (x1 == x2 || y1 == y2);
+                bool okForKnight = (Math.Abs(x1 - x2) == 2 && Math.Abs(y1 - y2) == 1) || (Math.Abs(x1 - x2) == 1 && Math.Abs(y1 - y2) == 2);
+                bool okForBishop = Math.Abs(x1 - x2) == Math.Abs(y1 - y2);
+                bool okForQueen = okForRook || okForBishop;
+                bool okForKing = (Math.Abs(x1 - x2) <= 1) && (Math.Abs(y1 - y2) <= 1);
+                Console.WriteLine("Rook: " + okForRook);
+                Console.WriteLine("Knight: " + okForKnight);
+                Console.WriteLine("Bishop: " + okForBishop);
+                Console.WriteLine("Queen: " + okForQueen);
+                Console.WriteLine("King: " + okForKing);
+            }
+        }
+
+        /// <summary>
+        /// Timus 1493. One step from Happiness
+        /// </summary>
+        static void Timus1493()
+        {
+            var inputString = Console.ReadLine();
+            var sumLeft = inputString.Substring(0, 3).ToArray().Select(c => int.Parse(c.ToString())).Sum();
+            var sumRight = inputString.Substring(3).ToArray().Select(c => int.Parse(c.ToString())).Sum();
+            var numRight = int.Parse(inputString.Substring(3));
+            if ((sumLeft > sumRight && numRight % 10 != 9) || (sumLeft < sumRight) && (numRight % 10 != 0))
+                Console.WriteLine("Yes");
+            else
+                Console.WriteLine("No");
+        }
+
         static void Main(string[] args)
         {
             ExchangeTwoVariables(1, 2);
@@ -193,8 +238,6 @@ namespace Programs
             Console.WriteLine(Calculate("10000 12 12"));
             Console.WriteLine(Expr10(1000, new int[] { 3, 5 }));
             Console.WriteLine(Expr11(20, 51));
-            //Expr13();
-            //Expr12();
             
         }
     }
