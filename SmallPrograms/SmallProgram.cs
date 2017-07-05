@@ -125,9 +125,31 @@ namespace SmallPrograms
             Console.WriteLine(result.Length);
         }
 
+        /// <summary>
+        /// Timus 1910. Titan Ruins: Hidden Entrance
+        /// </summary>
+        static void Timus1910()
+        {
+            var count = int.Parse(Console.ReadLine()) - 2;
+            var input = Console.ReadLine().Split().Select(s => int.Parse(s)).ToArray();
+            int maxSum = 0;
+            int tempSum;
+            int index = 1;
+            for (int i = 0; i < count; i++)
+            {
+                tempSum = input[i] + input[i + 1] + input[i + 2];
+                if (maxSum < tempSum)
+                {
+                    maxSum = tempSum;
+                    index = i;
+                }
+            }
+            Console.WriteLine("{0} {1}", maxSum, index + 2);
+        }
+
         static void Main(string[] args)
         {
-            
+            Timus1910();
         }
     }
 }

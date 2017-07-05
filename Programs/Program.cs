@@ -226,6 +226,43 @@ namespace Programs
                 Console.WriteLine("No");
         }
 
+        static void Cond4()
+        {
+            int[] input = Console.ReadLine().Split().Select(s => int.Parse(s)).ToArray();
+            int diff = Math.Min(input[1], input[3]) - Math.Max(input[0], input[2]);
+            Console.WriteLine(diff > 0 ? diff : 0);
+        }
+
+        static void Timus1740()
+        {
+            string[] input = Console.ReadLine().Split();
+            var l = int.Parse(input[0]);
+            var k = int.Parse(input[1]);
+            var h = int.Parse(input[2]);
+            double minTime = l / k * h;
+            double maxTime = l % k == 0 ? minTime : minTime + h - .00001;
+            Console.WriteLine(String.Format("{0:F5} {1:F5}", minTime, maxTime));
+        }
+
+        /// <summary>
+        /// Не работает
+        /// Timus 1484. Film rating
+        /// </summary>
+        static void Timus1484()
+        {
+            string[] input = Console.ReadLine().Split();
+            var x = double.Parse(input[0]);
+            var y = double.Parse(input[1]);
+            var n = int.Parse(input[2]);
+            //var ym = y + 5;
+            //Console.WriteLine(String.Format("{0:F25}", ym - 1));
+            double z = (x - y) * n / (y - 1);
+            if (x <= y)
+                Console.WriteLine(0);
+            else
+                Console.WriteLine(Math.Truncate(z) + 1);
+        }
+
         static void Main(string[] args)
         {
             ExchangeTwoVariables(1, 2);
