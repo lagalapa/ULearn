@@ -147,9 +147,23 @@ namespace SmallPrograms
             Console.WriteLine("{0} {1}", maxSum, index + 2);
         }
 
+        /// <summary>
+        /// Timus 1567. SMS-spam
+        /// </summary>
+        static void Timus1567()
+        {
+            int sum = 0;
+            var letters = new string[] { "adgjmpsvy. ", "behknqtwz,", "cfilorux!" };
+            foreach (char c in Console.ReadLine())
+                for (int i = 0; i < 3; i++)
+                    if (letters[i].Contains(c))
+                        sum += i + 1;
+            Console.WriteLine(sum);
+        }
+
         static void Main(string[] args)
         {
-            Timus1910();
+            Timus1567();
         }
     }
 }

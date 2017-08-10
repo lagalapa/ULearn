@@ -275,7 +275,7 @@ namespace Programs
             Console.WriteLine(Calculate("10000 12 12"));
             Console.WriteLine(Expr10(1000, new int[] { 3, 5 }));
             Console.WriteLine(Expr11(20, 51));
-            
+            Timus1484();
         }
     }
 }
