@@ -161,9 +161,56 @@ namespace SmallPrograms
             Console.WriteLine(sum);
         }
 
+        /// <summary>
+        /// Timus 1581. Teamwork
+        /// </summary>
+        static void Timus1581()
+        {
+            int n = int.Parse(Console.ReadLine());
+            string[] a = Console.ReadLine().Split();
+            string currentString = a[0];
+            int count = 1;
+            for (int i = 1; i < n; i++)
+            {
+                if (a[i] == currentString)
+                    count++;
+                else
+                {
+                    Console.Write("{0} {1} ", count, currentString);
+                    currentString = a[i];
+                    count = 1;
+                }
+            }
+            Console.WriteLine("{0} {1} ", count, currentString);
+        }
+
+        /// <summary>
+        /// Timus 2100. Wedding dinner
+        /// </summary>
+        static void Timus2100()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int ones = 0;
+            for (int i = 0; i < n; i++)
+                if (Console.ReadLine().Contains("+"))
+                    ones++;
+            Console.WriteLine((n + ones == 11 ? n + ones + 3 : n + ones + 2) * 100);
+        }
+
+        static void Timus1263()
+        {
+            int[] input = Console.ReadLine().Split().Select(s => int.Parse(s)).ToArray();
+            int n = input[0], m = input[1];
+            int[] votes = new int[n + 1];
+            for (int i = 0; i < m; i++)
+                votes[int.Parse(Console.ReadLine())]++;
+            for (int i = 1; i <= n; i++)
+                Console.WriteLine("{0:F2}%", votes[i] / (double)m * 100);
+        }
+
         static void Main(string[] args)
         {
-            Timus1567();
+            Timus1263();
         }
     }
 }
